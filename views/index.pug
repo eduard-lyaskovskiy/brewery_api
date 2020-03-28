@@ -7,34 +7,44 @@ html(lang="en")
         link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Fredoka+One|Lato&display=swap")
     body
         div(class="container")
-            div(class="row")
+            div(class="row m-3 p-3")
                 h1(class="display-1") Brewery 
                     span(class="badge badge-success") USA            
-            div(class="row")
-                h1 Здесь будет мапа
-            div(class="row")
-                each val in json 
+            div(class="row m-3 p-3")
+                div(class="accordion" id="accordion")
+                    each addressArray, state in stateMapToIndex
+                        div(class="card")
+                            div(class="card-header" id=`${state}`)
+                                h5(class="mb-0")
+                                    button(class="btn btn-link" type="button" data-toggle="collapse" data-target=`#${state}_` aria-expanded="true" aria-controls=`${state}_`)
+                                        span= state     
+                            div(id=`${state}_` class="collapse" aria-labelledby=`${state}` data-parent="#accordion")
+                                div(class="card-body")
+                                    ul(class="list-group")
+                                        each address in addressArray
+                                            li(class="list-group-item")= address
+            div(class="row m-3 p-3")
+                each val in dataWithoutMicro 
                     table(class="table table-striped table-dark table-bordered table-sm")
                         thead(class="thead-light")
                             tr
                                 th(scope="col") ID 
                                 th(scope="col") Name
-                                th(scope="col") Street
+                                th(scope="col") Address
                                 th(scope="col") Phone
+                                th(scope="col") Type
                                 th(scope="col") Web site
-                        tbody            
+                        tbody          
                             each val1 in val
                                 tr 
                                     th(scope="row")= val1.id
-                                    td
-                                        span(class="badge badge-secondary")= val1.name
-                                    td
-                                        span(class="badge badge-secondary")= val1.street
+                                    td= val1.name
+                                    td= val1.getFullAddress()
                                     td 
                                         span(class="badge badge-info")= val1.phone
+                                    td= val1.brewery_type
                                     td
                                         a(class="badge badge-light" href=`${val1.website_url}` target="_blank")= val1.website_url ? val1.website_url.match(/\/\/(.+)/)[1] : val1.website_url
-    
     script(src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous")
     script(src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous")
     script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous")

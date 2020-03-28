@@ -16,7 +16,7 @@ class Brewery {
         this.tag_list = data.tag_list;
     }
     getFullAddress () {
-        return `${this.postal_code}<br>${this.country}<br>${this.state}<br>${this.city}<br>${this.street}`
+        return `${this.postal_code} ${this.country} ${this.state} ${this.city} ${this.street}`
     }
 }
 module.exports = Brewery;
