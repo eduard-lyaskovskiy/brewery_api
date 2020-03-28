@@ -1,0 +1,11 @@
+body, html {
+    width:100%;
+    margin:0;
+    padding:0;
+}
+.display-1, .badge-success {
+    font-family: 'Fredoka One', cursive;
+}
+table {
+    font-family: 'Lato', sans-serif;
+}

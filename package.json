@@ -10,8 +10,11 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "fetch": "^1.1.0",
     "nodemon": "^2.0.2",
+    "pug": "^2.0.4",
     "request": "^2.88.2",
-    "request-promise": "^4.2.5"
+    "request-promise": "^4.2.5",
+    "xmlhttprequest": "^1.8.0"
   }
 }
