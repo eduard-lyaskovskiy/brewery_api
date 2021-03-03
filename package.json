@@ -14,7 +14,7 @@
     "fetch": "^1.1.0",
     "nodemon": "^2.0.2",
     "npm-upgrade": "^2.0.3",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "request": "^2.88.2",
     "request-promise": "^4.2.5",
     "xmlhttprequest": "^1.8.0"
